@@ -26,7 +26,16 @@ tw-link {
 #ui-bar-history {
     display: none !important;
 }
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="未命名片段" tags="" position="700,300" size="100,100">(css:&quot;font-size: 50px;&quot;)[欢迎来到i人生活模拟器]&lt;br&gt;&lt;br&gt;
+Config.history.maxStates = 0;
+tw-icon.undo {
+    display: none !important;
+}
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">$(document).on('click', '#history-backward', function (event) {
+    event.preventDefault();
+    return false;
+});
+
+</script><tw-passagedata pid="1" name="未命名片段" tags="" position="700,300" size="100,100">(css:&quot;font-size: 50px;&quot;)[欢迎来到i人生活模拟器]&lt;br&gt;&lt;br&gt;
 	你是一个i人，请开始你的一天生活&lt;br&gt;
     {(css: &quot;display: inline-block; padding: 2px 15px; background: #3E3E3E; border: 1px solid #3E3E3E; border-radius: 4px; color: white; font-size: 26px;text-decoration: none;&quot;)[[点击开始你的一天]]}</tw-passagedata><tw-passagedata pid="2" name="出门" tags="" position="825,425" size="100,100">(set: $event to (either: 
     &quot;你遇到了邻居王阿姨&quot;,
@@ -38,9 +47,8 @@ tw-link {
 
 {(css: &quot;font-family: Inter; font-style: normal; font-weight: 400; font-size: 30px; color: #000000;&quot;)[$event]}
 
-(if: $event is &quot;你遇到了邻居王阿姨&quot;)[
-    (set: $energy to 30) (set: $social to 10) (set: $emotional to 100)
-    {(css: &quot;display: inline-block; padding: 2px 15px; background: #808080; border: 1px solid #808080; border-radius: 4px; color: white; font-size: 18px;&quot;)[
+(if: $event is &quot;你遇到了邻居王阿姨&quot;)[(set: $energy to 30) (set: $social to 10) (set: $emotional to 100)
+{(css: &quot;display: inline-block; padding: 2px 15px; background: #808080; border: 1px solid #808080; border-radius: 4px; color: white; font-size: 18px;&quot;)[
     能量:$energy    社交:$social     心情:$emotional  
     ]}&lt;br&gt;
 
@@ -71,9 +79,8 @@ tw-link {
     {(css: &quot;display: inline-block; padding: 2px 15px; background: #3E3E3E; border: 1px solid #3E3E3E; border-radius: 4px; color: white; font-size: 26px;&quot;)[[交给警察叔叔]]}
 ]
 
-(else-if: $event is &quot;你遇到了一个推销员&quot;)[
-    (set: $energy to 20)(set: $social to 10) (set: $emotional to 70)
-     {(css: &quot;display: inline-block; padding: 2px 15px; background: #808080; border: 1px solid #808080; border-radius: 4px; color: white; font-size: 18px;&quot;)[能量: $energy    社交: $social     心情: $emotional  
+(else-if: $event is &quot;你遇到了一个推销员&quot;)[(set: $energy to 20)(set: $social to 10) (set: $emotional to 70)
+{(css: &quot;display: inline-block; padding: 2px 15px; background: #808080; border: 1px solid #808080; border-radius: 4px; color: white; font-size: 18px;&quot;)[能量: $energy    社交: $social     心情: $emotional  
 ]}
 
 {(css: &quot;font-family: Inter; font-style: normal; font-weight: 400; font-size: 30px; line-height: 5px; color: #000000;&quot;)[推销员向你推销他们公司的牙膏，你......]}
